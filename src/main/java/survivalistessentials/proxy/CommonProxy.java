@@ -9,6 +9,7 @@ import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartedEvent;
@@ -32,6 +33,7 @@ import survivalistessentials.common.SurvivalistEssentialsModule;
 import survivalistessentials.common.loot.LootItemBlockIsTagCondition;
 import survivalistessentials.config.ConfigHandler;
 import survivalistessentials.data.integration.SurvivalistEssentialsIntegration;
+import survivalistessentials.event.ClientEventHandler;
 import survivalistessentials.items.SurvivalistEssentialsItems;
 import survivalistessentials.loot.SurvivalistEssentialsLootTables;
 import survivalistessentials.sound.Sounds;
@@ -58,6 +60,7 @@ public class CommonProxy {
         });
         if (Services.PLATFORM.isPhysicalClient()) {
             WhiteNoiseConfigLoader.add(WhiteNoiseConfig.Type.CLIENT, ConfigHandler.CLIENT_SPEC, SurvivalistEssentials.MODID);
+            MinecraftForge.EVENT_BUS.register(ClientEventHandler.class);
         }
     }
 

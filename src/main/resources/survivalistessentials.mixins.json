@@ -7,10 +7,11 @@
     "AbstractBlockAccessor",
     "AbstractBlockStateAccessor",
     "DiggerItemAccessor",
-    "PunchTreeTutorialStepMixin",
     "CraftPlanksTutorialStepMixin"
   ],
-  "client": [],
+  "client": [
+    "PunchTreeTutorialStepMixin"
+  ],
   "injectors": {
     "defaultRequire": 1
   },
