@@ -13,19 +13,13 @@ public abstract class RecipeRemainderTieredItem extends Item implements IRecipeR
 
     public abstract ItemStack getRemainingItem(ItemStack stack);
 
-    //@Override
-    //TODO: FIXME
-    public final boolean hasCraftingRemainingItem() {
-        return true;
-    }
-
     @Override
     public final ItemStack getRecipeRemainder(ItemStack itemStack) {
         return getRemainingItem(itemStack);
     }
 
     @Override
-    public final ItemStack getCraftingRemainingItem(ItemStack itemStack) {
+    public final ItemStack getCraftingRemainder(ItemStack itemStack) {
         return getRemainingItem(itemStack);
     }
 

@@ -11,19 +11,13 @@ public abstract class RecipeRemainderSwordItem extends Item implements IRecipeRe
 
     public abstract ItemStack getRemainingItem(ItemStack stack);
 
-    //@Override
-    //TODO FIX ME
-    public final boolean hasCraftingRemainingItem() {
-        return true;
-    }
-
     @Override
     public final ItemStack getRecipeRemainder(ItemStack itemStack) {
         return getRemainingItem(itemStack);
     }
 
     @Override
-    public final ItemStack getCraftingRemainingItem(ItemStack itemStack) {
+    public final ItemStack getCraftingRemainder(ItemStack itemStack) {
         return getRemainingItem(itemStack);
     }
 
