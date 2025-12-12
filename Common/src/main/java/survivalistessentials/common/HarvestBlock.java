@@ -120,41 +120,43 @@ public final class HarvestBlock {
                             tagKey = optionalBlockTagKey.get();
                         }
                     }
+                    if (tagKey == null && rule.speed().isPresent()) {
+                        Optional<TagKey<Block>> optionalBlockTagKey = rule.blocks().unwrapKey();
+
+                        if (optionalBlockTagKey.isPresent()) {
+                            tagKey = optionalBlockTagKey.get();
+                        }
+                    }
                 }
 
-                final ToolType toolType = toolTypeForMineableTag(tagKey);
+                final ToolType toolType = toolTypeForTag(tagKey);
 
                 if (toolType != ToolType.NONE) {
                     ITEM_TOOL_TYPES.put(item, toolType);
                 }
                 else {
-                    SurvivalistEssentials.LOGGER.debug("Unable to determine item tool type. {} {}", ResourceLocationHelper.getItemId(item), tagKey);
+                    SurvivalistEssentials.LOGGER.warn("Unable to determine item tool type. {} {}", ResourceLocationHelper.getItemId(item), tagKey);
                 }
             }
-            /*
-            else if (item instanceof SwordItem || item instanceof ShearsItem) {
-                ITEM_TOOL_TYPES.put(item, ToolType.SHARP);
-            }
-             */
         });
 
         ITEM_TOOL_TYPES.forEach((item, toolType) -> {
-            SurvivalistEssentials.LOGGER.debug("Inferred tool type for item: {} is {}", ResourceLocationHelper.getItemId(item), toolType);
+            SurvivalistEssentials.LOGGER.info("Inferred tool type for item: {} is {}", ResourceLocationHelper.getItemId(item), toolType);
         });
 
         if (!unknownToolTypeBlocks.isEmpty()) {
-            SurvivalistEssentials.LOGGER.debug("Unable to infer primary tools for {} blocks with unknown ToolType. These blocks will not enforce correct tool.", unknownToolTypeBlocks.values().stream().mapToInt(Collection::size).sum());
+            SurvivalistEssentials.LOGGER.warn("Unable to infer primary tools for {} blocks with unknown ToolType. These blocks will not enforce correct tool.", unknownToolTypeBlocks.values().stream().mapToInt(Collection::size).sum());
             unknownToolTypeBlocks
                 .forEach((toolType, blocks) -> {
                     blocks.forEach((block) -> {
-                        SurvivalistEssentials.LOGGER.debug("{}, {}", toolType, block);
+                        SurvivalistEssentials.LOGGER.info("{}, {}", toolType, block);
                         BLOCK_TOOL_TYPES.put(block, toolType);
                     });
                 });
         }
     }
 
-    private static ToolType toolTypeForMineableTag(TagKey<Block> tag) {
+    private static ToolType toolTypeForTag(TagKey<Block> tag) {
         if (tag == BlockTags.MINEABLE_WITH_PICKAXE) {
             return ToolType.PICKAXE;
         }
@@ -168,6 +170,9 @@ public final class HarvestBlock {
             return ToolType.HOE;
         }
         else if (tag == TagManager.Blocks.MINEABLE_WITH_SHARP) {
+            return ToolType.SHARP;
+        }
+        else if (tag == BlockTags.SWORD_EFFICIENT || tag == BlockTags.SWORD_INSTANTLY_MINES || tag == BlockTags.LEAVES) {
             return ToolType.SHARP;
         }
 

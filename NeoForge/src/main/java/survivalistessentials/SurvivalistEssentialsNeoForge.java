@@ -54,6 +54,7 @@ import static survivalistessentials.util.ResourceLocationHelper.prefix;
 public class SurvivalistEssentialsNeoForge {
 
     public SurvivalistEssentialsNeoForge(IEventBus bus, Dist dist, ModContainer container) {
+        SurvivalistEssentials.init();
         registryInit(bus);
         registerListeners(bus);
         SurvivalistEssentialsModule.initRegistries(bus);
