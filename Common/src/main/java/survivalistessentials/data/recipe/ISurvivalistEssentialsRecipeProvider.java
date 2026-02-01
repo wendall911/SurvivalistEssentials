@@ -179,8 +179,18 @@ public interface ISurvivalistEssentialsRecipeProvider {
             .define('I', Items.STICK)
             .pattern("IS")
             .pattern(" I")
+            .group("saw_handles")
             .unlockedBy("has_plant_string", _has(plantString))
-            .save(recipeOutput);
+            .save(recipeOutput, prefix("saw_handle_with_plant_string").toString());
+        
+        ShapedRecipeBuilder.shaped(itemRegistry, RecipeCategory.TOOLS, SurvivalistEssentialsItems.SAW_HANDLE)
+            .define('S', Items.STRING)
+            .define('I', Items.STICK)
+            .pattern("IS")
+            .pattern(" I")
+            .group("saw_handles")
+            .unlockedBy("has_string", _has(Items.STRING))
+            .save(recipeOutput, prefix("saw_handle_with_string").toString());
 
         ShapedRecipeBuilder.shaped(itemRegistry, RecipeCategory.TOOLS, SurvivalistEssentialsItems.CRUDE_SAW)
             .define('H', SurvivalistEssentialsItems.SAW_HANDLE)
