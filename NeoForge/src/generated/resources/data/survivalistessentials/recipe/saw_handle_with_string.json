@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "saw_handles",
+  "key": {
+    "I": "minecraft:stick",
+    "S": "minecraft:string"
+  },
+  "pattern": [
+    "IS",
+    " I"
+  ],
+  "result": {
+    "count": 1,
+    "id": "survivalistessentials:saw_handle"
+  }
+}

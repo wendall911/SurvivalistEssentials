@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_plant_string": {
+    "has_string": {
       "conditions": {
         "items": [
           {
-            "items": "survivalistessentials:plant_string"
+            "items": "minecraft:string"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "survivalistessentials:saw_handle"
+        "recipe": "survivalistessentials:saw_handle_with_string"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_plant_string"
+      "has_string"
     ]
   ],
   "rewards": {
     "recipes": [
-      "survivalistessentials:saw_handle"
+      "survivalistessentials:saw_handle_with_string"
     ]
   }
 }

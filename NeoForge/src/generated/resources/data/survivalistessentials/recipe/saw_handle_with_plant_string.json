@@ -1,6 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
+  "group": "saw_handles",
   "key": {
     "I": "minecraft:stick",
     "S": "survivalistessentials:plant_string"
