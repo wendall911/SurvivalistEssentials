@@ -85,7 +85,7 @@ public class HarvestEventHandler {
                         player.hurt(player.damageSources().generic(), 0.1f);
                     }
 
-                    if (!toolClass.equals("unknown") && !player.level().isClientSide() && ConfigHandler.Client.enableFailSound()) {
+                    if (!toolClass.equals("unknown") && player.level().isClientSide() && ConfigHandler.Client.enableFailSound()) {
                         level.playSound(null, player.getOnPos(), SurvivalistEssentialsSounds.TOOL_FAIL, SoundSource.PLAYERS, 0.6F, 1.0F);
                     }
                 }
