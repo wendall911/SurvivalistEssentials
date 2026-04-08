@@ -106,7 +106,7 @@ public class SurvivalistEssentialsBookProvider extends HandbookBookProvider {
         .addCraftingPage(prefix("crude_saw_blade"))
             .setTitle("item.survivalistessentials.crude_saw_blade")
             .setText("info.survivalistessentials.book.tools.crude_tools.crude_saw_blade.desc").build()
-        .addCraftingPage(prefix("saw_handle"))
+        .addCraftingPage(prefix("saw_handle_with_plant_string"))
             .setTitle("item.survivalistessentials.saw_handle")
             .setText("info.survivalistessentials.book.tools.crude_tools.saw_handle.desc").build()
         .addCraftingPage(prefix("crude_saw"))

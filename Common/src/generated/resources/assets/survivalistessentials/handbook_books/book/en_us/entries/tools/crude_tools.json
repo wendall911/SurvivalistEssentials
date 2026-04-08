@@ -29,7 +29,7 @@
     },
     {
       "type": "handbook:crafting",
-      "recipe": "survivalistessentials:saw_handle",
+      "recipe": "survivalistessentials:saw_handle_with_plant_string",
       "text": "info.survivalistessentials.book.tools.crude_tools.saw_handle.desc",
       "title": "item.survivalistessentials.saw_handle"
     },
