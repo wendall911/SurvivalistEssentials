@@ -39,8 +39,8 @@ public final class SurvivalistEssentialsItems {
     public static Item CLOTH = make("cloth");
 
     // Books
-    public static Item BOOK = registerBook("book");
-    public static Item MODPACK_BOOK = registerBook("modpack_book");
+    public static Item BOOK = registerBook("book", true);
+    public static Item MODPACK_BOOK = registerBook("modpack_book", false);
 
     // Tools
     public static Item CRUDE_KNIFE = registerKnifeTool("crude_knife", ItemTiers.FLINT_TIER);
@@ -84,7 +84,7 @@ public final class SurvivalistEssentialsItems {
     private static Item make(String name) {
         Item item = new Item(new Item.Properties());
 
-        return make(name, item, false, false);
+        return make(name, item, false, true);
     }
 
     private static Item make(String name, Item item, boolean isTool, boolean noCategory) {
@@ -139,8 +139,8 @@ public final class SurvivalistEssentialsItems {
         return make(name, new Mortar(new Item.Properties()), false, false);
     }
 
-    public static Item registerBook(String name) {
-        return make(name, new SurvivalistEssentialsBook(), false, true);
+    public static Item registerBook(String name, boolean noCategory) {
+        return make(name, new SurvivalistEssentialsBook(), false, noCategory);
     }
 
     public static Map<ResourceLocation, Item> getAllIngredients() {
