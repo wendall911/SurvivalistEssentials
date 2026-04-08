@@ -71,6 +71,7 @@ public class CommonBlockTagsProvider extends IntrinsicHolderTagsProvider<Block> 
             .addElement(ResourceLocationHelper.getBlockId(Blocks.RED_SANDSTONE))
             .addOptionalTag(TagManager.Blocks.GRAVELS.location())
             .addOptionalTag(BlockTags.DIRT.location())
+            .addOptionalTag(BlockTags.GRASS_BLOCKS.location())
             .addOptionalTag(BlockTags.SAND.location())
             .addOptionalTag(TagManager.Blocks.SANDS.location())
             .addOptionalTag(BlockTags.TERRACOTTA.location())
