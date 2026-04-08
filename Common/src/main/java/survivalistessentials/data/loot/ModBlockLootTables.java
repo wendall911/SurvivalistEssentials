@@ -22,6 +22,7 @@ import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 
 import survivalistessentials.SurvivalistEssentials;
+import survivalistessentials.mixin.BlockLootSubProviderAccessor;
 import survivalistessentials.world.SurvivalistEssentialsWorld;
 
 public class ModBlockLootTables extends BlockLootSubProvider {
@@ -59,13 +60,14 @@ public class ModBlockLootTables extends BlockLootSubProvider {
     public void generate(@NotNull BiConsumer<ResourceKey<LootTable>, Builder> output) {
         this.generate();
         Set<ResourceKey<LootTable>> set = new HashSet<>();
+        BlockLootSubProviderAccessor accessor = (BlockLootSubProviderAccessor) this;
 
         for(Block block : getKnownBlocks()) {
-            if (block.isEnabled(this.enabledFeatures)) {
+            if (block.isEnabled(accessor.getEnabledFeatures())) {
                 Optional<ResourceKey<LootTable>> resourcekey = block.getLootTable();
 
                 if (resourcekey.isPresent() && set.add(resourcekey.get())) {
-                    LootTable.Builder loottable$builder = this.map.remove(resourcekey.get());
+                    LootTable.Builder loottable$builder = accessor.getMap().remove(resourcekey.get());
                     if (loottable$builder == null) {
                         throw new IllegalStateException(
                             String.format(
@@ -82,8 +84,8 @@ public class ModBlockLootTables extends BlockLootSubProvider {
             }
         }
 
-        if (!this.map.isEmpty()) {
-            throw new IllegalStateException("Created block loot tables for non-blocks: " + this.map.keySet());
+        if (!accessor.getMap().isEmpty()) {
+            throw new IllegalStateException("Created block loot tables for non-blocks: " + accessor.getMap().keySet());
         }
     }
 

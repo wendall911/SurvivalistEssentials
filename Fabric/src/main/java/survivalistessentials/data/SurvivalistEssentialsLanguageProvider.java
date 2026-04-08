@@ -2,7 +2,9 @@ package survivalistessentials.data;
 
 import java.util.concurrent.CompletableFuture;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import org.jspecify.annotations.NonNull;
+
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 
 import net.minecraft.core.HolderLookup;
@@ -12,12 +14,12 @@ import survivalistessentials.common.Translations;
 
 public class SurvivalistEssentialsLanguageProvider extends FabricLanguageProvider {
 
-    protected SurvivalistEssentialsLanguageProvider(FabricDataOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryFuture) {
+    protected SurvivalistEssentialsLanguageProvider(FabricPackOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryFuture) {
         super(dataOutput, "en_us", registryFuture);
     }
 
     @Override
-    public void generateTranslations(HolderLookup.Provider provider, TranslationBuilder builder) {
+    public void generateTranslations(HolderLookup.@NonNull Provider provider, TranslationBuilder builder) {
         // Creative Tab
         builder.add(SurvivalistEssentials.MODID + ".items", "Survivalist Essentials Items");
 

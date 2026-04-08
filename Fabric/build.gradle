@@ -1,6 +1,6 @@
 plugins {
     id 'multiloader-loader'
-    id 'fabric-loom'
+    id 'net.fabricmc.fabric-loom'
 }
 
 def identifier = "${mod_id}-${minecraft_version}-fabric"
@@ -9,60 +9,53 @@ version = "${version}-${modLoader}"
 
 dependencies {
     minecraft "com.mojang:minecraft:${minecraft_version}"
-    mappings(loom.layered {
-        officialMojangMappings()
-    })
-    modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
-    modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
+    implementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
+    implementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
 
-    modImplementation group: 'technology.roughness.whitenoise', name: "whitenoise-${minecraft_version}-fabric", version: "${whitenoise_version}"
+    implementation group: 'technology.roughness.whitenoise', name: "whitenoise-${minecraft_version}-fabric", version: "${whitenoise_version}"
     include group: 'technology.roughness.whitenoise', name: "whitenoise-${minecraft_version}-fabric", version: "${whitenoise_version}"
 
-    modImplementation group: 'technology.roughness.handbook', name: "handbook-${minecraft_version}-fabric", version: "${handbook_version}"
+    implementation group: 'technology.roughness.handbook', name: "handbook-${minecraft_version}-fabric", version: "${handbook_version}"
     include group: 'technology.roughness.handbook', name: "handbook-${minecraft_version}-fabric", version: "${handbook_version}"
 
 /*
-    modLocalRuntime "dev.architectury:architectury-fabric:${architectury_version}"
-    modLocalRuntime("me.shedaniel.cloth:cloth-config-fabric:${cloth_config_version}") {
+    runtimeOnly "dev.architectury:architectury-fabric:${architectury_version}"
+    runtimeOnly("me.shedaniel.cloth:cloth-config-fabric:${cloth_config_version}") {
         exclude(group: "net.fabricmc.fabric-api")
     }
 */
-    modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:${rei_version}"
-    modCompileOnly "me.shedaniel:RoughlyEnoughItems-default-plugin-fabric:${rei_version}"
+    compileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:${rei_version}"
+    compileOnly "me.shedaniel:RoughlyEnoughItems-default-plugin-fabric:${rei_version}"
     /*
-    modLocalRuntime "me.shedaniel:RoughlyEnoughItems-fabric:${rei_version}"
+    runtimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:${rei_version}"
     */
 
-    modCompileOnly "mezz.jei:jei-${jei_minecraft_version}-common-api:${jei_version}"
-    modCompileOnly "mezz.jei:jei-${jei_minecraft_version}-fabric:${jei_version}"
+    compileOnly "mezz.jei:jei-${jei_minecraft_version}-common-api:${jei_version}"
+    compileOnly "mezz.jei:jei-${jei_minecraft_version}-fabric:${jei_version}"
 
-    modCompileOnly "curse.maven:carryon-274259:${carryon_fabric_version}"
+    compileOnly "curse.maven:carryon-274259:${carryon_fabric_version}"
 
-    modLocalRuntime group: 'com.terraformersmc', name: 'modmenu', version: "${mod_menu_version}"
+    runtimeOnly group: 'com.terraformersmc', name: 'modmenu', version: "${mod_menu_version}"
 
     // Testing Mods
-    //modLocalRuntime "curse.maven:carryon-274259:${carryon_fabric_version}"
-    modLocalRuntime "curse.maven:jade-324717:${jade_fabric_version}"
-    //modRuntimeOnly "curse.maven:mod-XXX:XXX"
+    //runtimeOnly "curse.maven:carryon-274259:${carryon_fabric_version}"
+    runtimeOnly "curse.maven:jade-324717:${jade_fabric_version}"
+    //runtimeOnly "curse.maven:mod-XXX:XXX"
     // Beach crashes in a dev environment.
     // Let's NOT Do architectury please
-    //modLocalRuntime "curse.maven:letsdo_beach-858691:${letsdo_beach_fabric_version}"
-    //modLocalRuntime "dev.emi:trinkets:${trinkets_version}"
-    //modLocalRuntime "curse.maven:letsdo_blooming-962885:${letsdo_blooming_fabric_version}"
-    //modLocalRuntime "curse.maven:letsdo_meadow-821483:${letsdo_meadow_fabric_version}"
-    //modLocalRuntime "curse.maven:letsdo_farm-1038103:${letsdo_farm_fabric_version}"
-    //modLocalRuntime "curse.maven:letsdo_vinery-704465:${letsdo_vinery_fabric_version}"
-    //modLocalRuntime "curse.maven:letsdo_wilder-1071657:${letsdo_wilder_fabric_version}"
+    //runtimeOnly "curse.maven:letsdo_beach-858691:${letsdo_beach_fabric_version}"
+    //runtimeOnly "dev.emi:trinkets:${trinkets_version}"
+    //runtimeOnly "curse.maven:letsdo_blooming-962885:${letsdo_blooming_fabric_version}"
+    //runtimeOnly "curse.maven:letsdo_meadow-821483:${letsdo_meadow_fabric_version}"
+    //runtimeOnly "curse.maven:letsdo_farm-1038103:${letsdo_farm_fabric_version}"
+    //runtimeOnly "curse.maven:letsdo_vinery-704465:${letsdo_vinery_fabric_version}"
+    //runtimeOnly "curse.maven:letsdo_wilder-1071657:${letsdo_wilder_fabric_version}"
 }
 
 loom {
     def aw = project(":Common").file("src/main/resources/${mod_id}.accesswidener")
     if (aw.exists()) {
         accessWidenerPath.set(aw)
-    }
-    mixin {
-        useLegacyMixinAp = true
-        defaultRefmapName.set("${mod_id}.refmap.json")
     }
     runs {
         client {

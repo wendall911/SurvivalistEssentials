@@ -18,9 +18,4 @@ public abstract class RecipeRemainderTieredItem extends Item implements IRecipeR
         return getRemainingItem(itemStack);
     }
 
-    @Override
-    public final ItemStack getCraftingRemainder(ItemStack itemStack) {
-        return getRemainingItem(itemStack);
-    }
-
 }

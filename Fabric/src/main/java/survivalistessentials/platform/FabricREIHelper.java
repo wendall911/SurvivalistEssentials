@@ -9,7 +9,9 @@ public class FabricREIHelper implements IREIHelper {
 
     @Override
     public boolean isVanillaItemType(EntryStack<?> entryStack) {
-        return entryStack.getType() == VanillaEntryTypes.ITEM;
+        //TODO Re-enable when REI updates to 26.1
+        //return entryStack.getType() == VanillaEntryTypes.ITEM;
+        return true;
     }
 
 }

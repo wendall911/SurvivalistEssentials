@@ -96,7 +96,7 @@ public class SurvivalistEssentialsFabric implements ModInitializer {
                     .add(LootItem.lootTableItem(SurvivalistEssentialsItems.PLANT_FIBER))
                     // No damn idea how to do this in the "Fabric" way, since their documentation is garbage. Deprecated, but whatever.
                     // I'll just add the mixin back if they remove it. This is hot garbage anyhow.
-                    .conditionally(List.of(LootConditionHelper.createKnifeChanceCondition(0.16F, Blocks.FIBER_PLANTS, itemRegistryLookup)))
+                    .when(List.of(LootConditionHelper.createKnifeChanceCondition(0.16F, Blocks.FIBER_PLANTS, itemRegistryLookup)))
                 );
                 if (pathString.contains("leaves")) {
                     HolderLookup.RegistryLookup<Enchantment> holderLookup = provider.lookupOrThrow(Registries.ENCHANTMENT);
@@ -105,12 +105,12 @@ public class SurvivalistEssentialsFabric implements ModInitializer {
                     builder.withPool(LootPool.lootPool()
                         .setRolls(ConstantValue.exactly(1))
                         .add(LootItem.lootTableItem(Items.STICK))
-                        .conditionally(List.of(LootConditionHelper.createKnifeChanceCondition(0.16F, BlockTags.LEAVES, itemRegistryLookup)))
+                        .when(List.of(LootConditionHelper.createKnifeChanceCondition(0.16F, BlockTags.LEAVES, itemRegistryLookup)))
                     );
                     builder.withPool(LootPool.lootPool()
                         .setRolls(ConstantValue.exactly(1))
                         .add(LootItem.lootTableItem(Items.STICK))
-                        .conditionally(List.of(LootConditionHelper.createExtraStickDropConditions(0.16F, BlockTags.LEAVES, holderLookup, itemRegistryLookup, entityRegistryLookup)))
+                        .when(List.of(LootConditionHelper.createExtraStickDropConditions(0.16F, BlockTags.LEAVES, holderLookup, itemRegistryLookup, entityRegistryLookup)))
                     );
                 }
             }

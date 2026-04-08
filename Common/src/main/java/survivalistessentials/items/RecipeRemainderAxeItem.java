@@ -17,9 +17,4 @@ public abstract class RecipeRemainderAxeItem extends AxeItem implements IRecipeR
         return getRemainingItem(itemStack);
     }
 
-    @Override
-    public final ItemStack getCraftingRemainder(ItemStack itemStack) {
-        return getRemainingItem(itemStack);
-    }
-
 }

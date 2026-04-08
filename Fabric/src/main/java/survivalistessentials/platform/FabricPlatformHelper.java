@@ -10,7 +10,9 @@ public class FabricPlatformHelper implements IPlatformHelper {
 
     @Override
     public boolean isCarryonKeyPressed(Player player) {
-        return CarryOnDataManager.getCarryData(player).isKeyPressed();
+        // TODO RE-ENABLE when carryon updates to 26.1
+        //return CarryOnDataManager.getCarryData(player).isKeyPressed();
+        return false;
     }
 
 }

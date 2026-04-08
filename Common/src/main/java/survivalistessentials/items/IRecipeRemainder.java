@@ -10,11 +10,4 @@ public interface IRecipeRemainder {
      */
     ItemStack getRecipeRemainder(ItemStack stack);
 
-    /*
-     * This is used to override the NeoForge ItemStack aware getCraftingRemainder()
-     * For some reason this is now marked as deprecated in NeoForge, not sure why
-     * See public interface IItemExtension in NeoForge
-     */
-    ItemStack getCraftingRemainder(ItemStack stack);
-
 }

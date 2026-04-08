@@ -12,6 +12,7 @@ import com.google.common.base.Suppliers;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 
@@ -31,12 +32,12 @@ public class SurvivalistEssentialsLootTables extends SurvivalistEssentialsModule
 
         public static final Supplier<MapCodec<LootTableModifier>> CODEC_SUPPLIER = Suppliers.memoize(() -> RecordCodecBuilder.mapCodec(inst ->
             codecStart(inst)
-                .and(ItemStack.CODEC.fieldOf("additional").forGetter(LootTableModifier::getStack))
+                .and(ItemStackTemplate.CODEC.fieldOf("additional").forGetter(LootTableModifier::getStack))
                 .apply(inst, LootTableModifier::new)));
 
-        private final ItemStack stack;
+        private final ItemStackTemplate stack;
 
-        public LootTableModifier(LootItemCondition[] conditionsIn, ItemStack itemStack) {
+        public LootTableModifier(LootItemCondition[] conditionsIn, ItemStackTemplate itemStack) {
             super(conditionsIn);
 
             this.stack = itemStack;
@@ -46,14 +47,14 @@ public class SurvivalistEssentialsLootTables extends SurvivalistEssentialsModule
             return this.conditions;
         }
 
-        public ItemStack getStack() {
+        public ItemStackTemplate getStack() {
             return stack;
         }
 
         @Override
         @NotNull
         protected ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, @NotNull LootContext context) {
-            generatedLoot.add(stack.copy());
+            generatedLoot.add(stack.create());
 
             return generatedLoot;
         }

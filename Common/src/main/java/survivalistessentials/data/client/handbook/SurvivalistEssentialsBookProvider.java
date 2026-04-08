@@ -8,7 +8,7 @@ import org.jetbrains.annotations.NotNull;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.PackOutput;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.Items;
 
 import handbook.api.data.BookBuilder;
@@ -33,9 +33,9 @@ public class SurvivalistEssentialsBookProvider extends HandbookBookProvider {
         String landingText = "info.survivalistessentials.book.intro";
         String subTitle = "info.survivalistessentials.book.subtitle";
 
-        BookBuilder bookBuilder = createBookBuilder("book", bookName, landingText, provider)
+        BookBuilder bookBuilder = createBookBuilder("book", bookName, landingText)
             .setSubtitle(subTitle)
-            .setCustomBookItem(new ItemStack(SurvivalistEssentialsItems.BOOK))
+            .setCustomBookItem(new ItemStackTemplate(SurvivalistEssentialsItems.BOOK))
             .setCreativeTab(SurvivalistEssentials.MODID + ".items")
             .setModel(SurvivalistEssentials.MODID + ":book")
             .setDontGenerateBook(true)
@@ -55,24 +55,24 @@ public class SurvivalistEssentialsBookProvider extends HandbookBookProvider {
                 "getting_started",
                 "info.survivalistessentials.book.getting_started.name",
                 "info.survivalistessentials.book.getting_started.desc",
-                new ItemStack(SurvivalistEssentialsWorld.ROCK_STONE)
+                new ItemStackTemplate(SurvivalistEssentialsWorld.ROCK_STONE)
         )
         .setSortnum(0)
         .addEntry(
         "getting_started/materials",
      "info.survivalistessentials.book.getting_started.materials.name",
-            new ItemStack(SurvivalistEssentialsWorld.ROCK_STONE)
+            new ItemStackTemplate(SurvivalistEssentialsWorld.ROCK_STONE)
         )
-        .addSpotlightPage(new ItemStack(SurvivalistEssentialsWorld.STONE_LOOSE_ROCK))
+        .addSpotlightPage(new ItemStackTemplate(SurvivalistEssentialsWorld.STONE_LOOSE_ROCK.asItem()))
             .setTitle("info.survivalistessentials.book.getting_started.materials.gather_stones.title")
             .setText("info.survivalistessentials.book.getting_started.materials.gather_stones.desc").build()
-        .addSpotlightPage(new ItemStack(Items.OAK_LEAVES))
+        .addSpotlightPage(new ItemStackTemplate(Items.OAK_LEAVES))
             .setTitle("info.survivalistessentials.book.getting_started.materials.gather_sticks.title")
             .setText("info.survivalistessentials.book.getting_started.materials.gather_sticks.desc").build()
-        .addSpotlightPage(new ItemStack(SurvivalistEssentialsItems.FLINT_SHARD))
+        .addSpotlightPage(new ItemStackTemplate(SurvivalistEssentialsItems.FLINT_SHARD))
             .setTitle("info.survivalistessentials.book.getting_started.materials.flint_shards.title")
             .setText("info.survivalistessentials.book.getting_started.materials.flint_shards.desc").build()
-        .addSpotlightPage(new ItemStack(SurvivalistEssentialsItems.PLANT_FIBER))
+        .addSpotlightPage(new ItemStackTemplate(SurvivalistEssentialsItems.PLANT_FIBER))
             .setTitle("info.survivalistessentials.book.getting_started.materials.plant_fiber.title")
             .setText("info.survivalistessentials.book.getting_started.materials.plant_fiber.desc").build()
         .addCraftingPage(prefix("plant_string"))
@@ -86,13 +86,13 @@ public class SurvivalistEssentialsBookProvider extends HandbookBookProvider {
             "tools",
             "info.survivalistessentials.book.tools.name",
             "info.survivalistessentials.book.tools.desc",
-            new ItemStack(SurvivalistEssentialsItems.SHARP_SAW)
+            new ItemStackTemplate(SurvivalistEssentialsItems.SHARP_SAW)
         )
         .setSortnum(1)
         .addEntry(
             "tools/crude_tools",
             "info.survivalistessentials.book.tools.crude_tools.name",
-            new ItemStack(SurvivalistEssentialsItems.CRUDE_SAW)
+            new ItemStackTemplate(SurvivalistEssentialsItems.CRUDE_SAW)
         )
         .addCraftingPage(prefix("crude_knife"))
             .setTitle("item.survivalistessentials.crude_knife")
@@ -122,10 +122,10 @@ public class SurvivalistEssentialsBookProvider extends HandbookBookProvider {
         .addEntry(
             "tools/improved_tools",
             "info.survivalistessentials.book.tools.improved_tools.name",
-            new ItemStack(SurvivalistEssentialsItems.SHARP_SAW_BLADE)
+            new ItemStackTemplate(SurvivalistEssentialsItems.SHARP_SAW_BLADE)
         )
         .setSortnum(1)
-        .addSpotlightPage(new ItemStack(SurvivalistEssentialsItems.SHARP_SAW))
+        .addSpotlightPage(new ItemStackTemplate(SurvivalistEssentialsItems.SHARP_SAW))
             .setText("info.survivalistessentials.book.tools.improved_tools.intro")
             .setTitle("info.survivalistessentials.book.tools.improved_tools.subtitle").build()
         .addCraftingPage(prefix("basic_saw"))
@@ -142,15 +142,15 @@ public class SurvivalistEssentialsBookProvider extends HandbookBookProvider {
             "health",
             "info.survivalistessentials.book.health.name",
             "info.survivalistessentials.book.health.desc",
-            new ItemStack(SurvivalistEssentialsItems.BANDAGE)
+            new ItemStackTemplate(SurvivalistEssentialsItems.BANDAGE)
         )
         .setSortnum(2)
         .addEntry(
             "health/ingredients",
             "info.survivalistessentials.book.health.ingredients.name",
-            new ItemStack(SurvivalistEssentialsItems.CLOTH)
+            new ItemStackTemplate(SurvivalistEssentialsItems.CLOTH)
         )
-        .addSpotlightPage(new ItemStack(SurvivalistEssentialsItems.CLOTH))
+        .addSpotlightPage(new ItemStackTemplate(SurvivalistEssentialsItems.CLOTH))
             .setText("info.survivalistessentials.book.health.ingredients.desc")
             .setTitle("info.survivalistessentials.book.health.ingredients.subtitle").build()
         .addCraftingPage(prefix("cloth"))
@@ -168,10 +168,10 @@ public class SurvivalistEssentialsBookProvider extends HandbookBookProvider {
         .addEntry(
             "health/bandages",
             "info.survivalistessentials.book.health.bandages.name",
-            new ItemStack(SurvivalistEssentialsItems.BANDAGE)
+            new ItemStackTemplate(SurvivalistEssentialsItems.BANDAGE)
         )
         .setSortnum(1)
-        .addSpotlightPage(new ItemStack(SurvivalistEssentialsItems.BANDAGE))
+        .addSpotlightPage(new ItemStackTemplate(SurvivalistEssentialsItems.BANDAGE))
             .setText("info.survivalistessentials.book.health.bandages.desc")
             .setTitle("info.survivalistessentials.book.health.bandages.subtitle").build()
         .addCraftingPage(prefix("crude_bandage"))

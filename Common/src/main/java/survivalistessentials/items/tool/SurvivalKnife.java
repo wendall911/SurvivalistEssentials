@@ -44,7 +44,7 @@ public class SurvivalKnife extends RecipeRemainderSwordItem {
             doDamage(knife, player);
         }
         else if (state.is(TagManager.Blocks.FIBER_PLANTS)) {
-            if (level.random.nextFloat() < 0.2) {
+            if (level.getRandom().nextFloat() < 0.2) {
                 doDamage(knife, player);
             }
         }

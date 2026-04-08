@@ -18,6 +18,7 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.CookingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
@@ -103,7 +104,7 @@ public interface ISurvivalistEssentialsRecipeProvider {
             .unlockedBy("has_string", _has(TagManager.Items.STRINGS))
             .save(recipeOutput);
 
-        SimpleCookingRecipeBuilder.smelting(Ingredient.of(plantString), RecipeCategory.MISC, Items.STRING, 0.1F, 50)
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(plantString), RecipeCategory.MISC, CookingBookCategory.MISC, Items.STRING, 0.1F, 50)
             .unlockedBy("has_plant_string", _has(plantString))
             .save(recipeOutput, prefix("string_from_plant_string").toString());
 

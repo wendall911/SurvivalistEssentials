@@ -1,6 +1,7 @@
 package survivalistessentials.data.recipe;
 
-import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
@@ -30,7 +31,7 @@ public record ConfigResourceCondition(String configValue) implements ResourceCon
     }
 
     @Override
-    public ResourceConditionType<?> getType() {
+    public @NonNull ResourceConditionType<?> getType() {
         return TYPE;
     }
 

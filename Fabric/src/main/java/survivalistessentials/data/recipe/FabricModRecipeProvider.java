@@ -2,9 +2,9 @@ package survivalistessentials.data.recipe;
 
 import java.util.concurrent.CompletableFuture;
 
-import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.NonNull;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditions;
 
@@ -25,24 +25,24 @@ public class FabricModRecipeProvider extends FabricRecipeProvider implements ISu
 
     private InternalRecipeProvider internalRecipeProvider;
 
-    public FabricModRecipeProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registryFuture) {
+    public FabricModRecipeProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registryFuture) {
         super(output, registryFuture);
     }
 
     @Override
-    protected @NotNull RecipeProvider createRecipeProvider(HolderLookup.Provider provider, RecipeOutput recipeOutput) {
+    protected @NonNull RecipeProvider createRecipeProvider(HolderLookup.@NonNull Provider provider, @NonNull RecipeOutput recipeOutput) {
         internalRecipeProvider = new InternalRecipeProvider(provider, recipeOutput);
 
         return internalRecipeProvider;
     }
 
     @Override
-    protected Identifier getRecipeIdentifier(Identifier identifier) {
+    protected @NonNull Identifier getRecipeIdentifier(@NonNull Identifier identifier) {
         return identifier;
     }
 
     @Override
-    public @NotNull String getName() {
+    public @NonNull String getName() {
         return SurvivalistEssentials.MOD_NAME + " - Fabric Recipes";
     }
 

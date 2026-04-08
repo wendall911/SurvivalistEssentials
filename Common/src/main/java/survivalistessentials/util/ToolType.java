@@ -40,7 +40,7 @@ public enum ToolType {
         ItemStack stack = new ItemStack(item);
         AtomicBoolean hasKey = new AtomicBoolean(false);
 
-        stack.getTags().takeWhile((TagKey<Item> n) -> !hasKey.get())
+        stack.tags().takeWhile((TagKey<Item> n) -> !hasKey.get())
             .filter(tagKey -> tag == tagKey).map(tagKey -> true).forEach(hasKey::set);
 
         return hasKey.get();

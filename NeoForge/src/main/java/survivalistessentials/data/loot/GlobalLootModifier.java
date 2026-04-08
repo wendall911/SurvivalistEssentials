@@ -12,6 +12,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.block.Block;
@@ -47,7 +48,7 @@ public class GlobalLootModifier extends GlobalLootModifierProvider {
             "plant_fiber_from_" + name,
             new SurvivalistEssentialsLootTables.LootTableModifier(
                 LootConditionHelper.createKnifeChanceCondition(0.16F, tag, itemRegistryLookup),
-                new ItemStack(SurvivalistEssentialsItems.PLANT_FIBER)
+                new ItemStackTemplate(SurvivalistEssentialsItems.PLANT_FIBER)
             )
         );
     }
@@ -61,7 +62,7 @@ public class GlobalLootModifier extends GlobalLootModifierProvider {
             "stick_drops_from_" + name,
             new SurvivalistEssentialsLootTables.LootTableModifier(
                 LootConditionHelper.createKnifeChanceCondition(0.16F, tag, itemRegistryLookup),
-                new ItemStack(Items.STICK)
+                new ItemStackTemplate(Items.STICK)
             )
         );
 
@@ -69,7 +70,7 @@ public class GlobalLootModifier extends GlobalLootModifierProvider {
             "extra_stick_drops_from_" + name,
             new SurvivalistEssentialsLootTables.LootTableModifier(
                 LootConditionHelper.createExtraStickDropConditions(0.16F, tag, enchantmentRegistryLookup, itemRegistryLookup, entityRegistryLookup),
-                new ItemStack(Items.STICK)
+                new ItemStackTemplate(Items.STICK)
             )
         );
     }

@@ -3,8 +3,10 @@ package survivalistessentials.data.client;
 import java.util.Map;
 import java.util.Optional;
 
+import org.jspecify.annotations.NonNull;
+
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
@@ -31,12 +33,12 @@ public class SurvivalistEssentialsModelProvider extends FabricModelProvider {
         TextureSlot.ALL
     );
 
-    public SurvivalistEssentialsModelProvider(FabricDataOutput output) {
+    public SurvivalistEssentialsModelProvider(FabricPackOutput output) {
         super(output);
     }
 
     @Override
-    public void generateBlockStateModels(BlockModelGenerators generator) {
+    public void generateBlockStateModels(@NonNull BlockModelGenerators generator) {
         for (Map.Entry<Identifier, Block> entry : SurvivalistEssentialsWorld.ALL_BLOCKS.entrySet()) {
             createLooseRock(generator, entry.getValue());
         }

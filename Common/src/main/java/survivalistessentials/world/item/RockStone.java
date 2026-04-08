@@ -41,8 +41,8 @@ public class RockStone extends Item {
             }
             else {
                 if (!level.isClientSide()) {
-                    if (level.random.nextFloat() < 0.5) {
-                        if (level.random.nextFloat() < ConfigHandler.Common.flintChance()) {
+                    if (level.getRandom().nextFloat() < 0.5) {
+                        if (level.getRandom().nextFloat() < ConfigHandler.Common.flintChance()) {
                             NonNullList<ItemStack> dropStack =
                                 NonNullList.withSize(1, new ItemStack(SurvivalistEssentialsItems.FLINT_SHARD, 2));
 

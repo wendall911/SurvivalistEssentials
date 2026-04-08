@@ -70,7 +70,7 @@ public class SurvivalistEssentialsNeoForge {
     public static final class RegistryListener {
         @SubscribeEvent(priority = EventPriority.HIGHEST)
         public static void registerEvent(RegisterEvent event) {
-            event.register(Registries.LOOT_CONDITION_TYPE, prefix("is_tag"), () -> LootItemBlockIsTagCondition.LOOT_ITEM_BLOCK_IS_TAG);
+            //event.register(Registries.LOOT_CONDITION_TYPE, prefix("is_tag"), () -> LootItemBlockIsTagCondition.CODEC);
         }
 
         @SubscribeEvent
