@@ -15,6 +15,10 @@
     {
       "id": "biomeswevegone:stripped_aspen_wood",
       "required": false
+    },
+    {
+      "id": "bloomingnature:aspen_log",
+      "required": false
     }
   ]
 }

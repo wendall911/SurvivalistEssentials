@@ -31,6 +31,10 @@
     {
       "id": "regions_unexplored:stripped_baobab_wood",
       "required": false
+    },
+    {
+      "id": "bloomingnature:baobab_log",
+      "required": false
     }
   ]
 }

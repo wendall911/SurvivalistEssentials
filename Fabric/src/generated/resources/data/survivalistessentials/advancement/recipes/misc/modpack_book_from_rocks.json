@@ -2,7 +2,7 @@
   "fabric:load_conditions": [
     {
       "condition": "survivalistessentials:config_disabled",
-      "config_disabled": "enableModpackBook"
+      "config_disabled": "disableModpackBook"
     }
   ],
   "parent": "minecraft:recipes/root",

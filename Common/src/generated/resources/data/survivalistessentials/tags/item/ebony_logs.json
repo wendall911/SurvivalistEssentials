@@ -15,6 +15,10 @@
     {
       "id": "biomeswevegone:stripped_ebony_wood",
       "required": false
+    },
+    {
+      "id": "bloomingnature:ebony_log",
+      "required": false
     }
   ]
 }

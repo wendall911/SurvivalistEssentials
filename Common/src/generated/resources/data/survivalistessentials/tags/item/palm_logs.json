@@ -47,6 +47,10 @@
     {
       "id": "regions_unexplored:stripped_palm_wood",
       "required": false
+    },
+    {
+      "id": "beachparty:palm_log",
+      "required": false
     }
   ]
 }

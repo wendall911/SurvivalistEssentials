@@ -31,6 +31,10 @@
     {
       "id": "regions_unexplored:stripped_pine_wood",
       "required": false
+    },
+    {
+      "id": "meadow:pine_log",
+      "required": false
     }
   ]
 }

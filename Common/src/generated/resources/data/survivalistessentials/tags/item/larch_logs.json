@@ -15,6 +15,10 @@
     {
       "id": "regions_unexplored:stripped_larch_wood",
       "required": false
+    },
+    {
+      "id": "bloomingnature:larch_log",
+      "required": false
     }
   ]
 }
