@@ -5,7 +5,7 @@ import net.minecraft.world.level.block.state.BlockState;
 
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.common.util.FakePlayer;
-import net.neoforged.neoforge.event.TagsUpdatedEvent;
+import net.neoforged.neoforge.event.level.LevelEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
 
@@ -16,7 +16,7 @@ import survivalistessentials.common.HarvestBlock;
 public class HarvestEvents {
 
     @SubscribeEvent
-    public static void tagUpdate(TagsUpdatedEvent event) {
+    public static void levelLoaded(LevelEvent.Load event) {
         HarvestBlock.setup();
     }
 

@@ -29,7 +29,6 @@ import net.neoforged.neoforge.registries.RegisterEvent;
 
 import survivalistessentials.common.HarvestBlock;
 import survivalistessentials.common.SurvivalistEssentialsModule;
-import survivalistessentials.common.loot.LootItemBlockIsTagCondition;
 import survivalistessentials.common.loot.SurvivalistEssentialsLootConditionTypes;
 import survivalistessentials.config.ConfigHandler;
 import survivalistessentials.data.integration.SurvivalistEssentialsIntegration;
@@ -47,8 +46,6 @@ import survivalistessentials.sound.SurvivalistEssentialsSounds;
 import survivalistessentials.world.SurvivalistEssentialsWorld;
 import survivalistessentials.world.effect.SurvivalistEssentialsEffects;
 import survivalistessentials.world.feature.SurvivalistEssentialsFeatures;
-
-import static survivalistessentials.util.ResourceLocationHelper.prefix;
 
 @Mod(SurvivalistEssentials.MODID)
 public class SurvivalistEssentialsNeoForge {
@@ -68,10 +65,6 @@ public class SurvivalistEssentialsNeoForge {
     }
 
     public static final class RegistryListener {
-        @SubscribeEvent(priority = EventPriority.HIGHEST)
-        public static void registerEvent(RegisterEvent event) {
-            //event.register(Registries.LOOT_CONDITION_TYPE, prefix("is_tag"), () -> LootItemBlockIsTagCondition.CODEC);
-        }
 
         @SubscribeEvent
         public static void setup(FMLCommonSetupEvent event) {

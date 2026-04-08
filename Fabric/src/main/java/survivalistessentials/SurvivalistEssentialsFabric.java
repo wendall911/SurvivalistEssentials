@@ -8,6 +8,7 @@ import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.event.lifecycle.v1.CommonLifecycleEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLevelEvents;
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 
 import net.minecraft.core.HolderLookup;
@@ -75,7 +76,7 @@ public class SurvivalistEssentialsFabric implements ModInitializer {
         SurvivalistEssentials.init();
         SurvivalistEssentialsFeatures.setup();
 
-        CommonLifecycleEvents.TAGS_LOADED.register((registries, client) -> {
+        ServerLevelEvents.LOAD.register((level, world) -> {
             HarvestBlock.setup();
         });
 
