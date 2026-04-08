@@ -21,6 +21,10 @@
       "required": false
     },
     {
+      "id": "#minecraft:grass_blocks",
+      "required": false
+    },
+    {
       "id": "#minecraft:sand",
       "required": false
     },
