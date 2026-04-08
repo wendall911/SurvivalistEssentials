@@ -69,6 +69,8 @@ public class CommonBlockTagsProvider extends IntrinsicHolderTagsProvider<Block> 
             .addElement(ResourceLocationHelper.getBlockId(Blocks.COPPER_ORE))
             .addElement(ResourceLocationHelper.getBlockId(Blocks.MOSSY_COBBLESTONE))
             .addElement(ResourceLocationHelper.getBlockId(Blocks.RED_SANDSTONE))
+            .addElement(ResourceLocationHelper.getBlockId(Blocks.PODZOL))
+            .addElement(ResourceLocationHelper.getBlockId(Blocks.MYCELIUM))
             .addOptionalTag(TagManager.Blocks.GRAVELS.location())
             .addOptionalTag(BlockTags.DIRT.location())
             .addOptionalTag(BlockTags.GRASS_BLOCKS.location())
@@ -89,6 +91,7 @@ public class CommonBlockTagsProvider extends IntrinsicHolderTagsProvider<Block> 
 
         getOrCreateRawBuilder(TagManager.Blocks.FIBER_PLANTS)
             .addElement(ResourceLocationHelper.getBlockId(Blocks.VINE))
+            .addElement(ResourceLocationHelper.getBlockId(Blocks.BUSH))
             .addElement(ResourceLocationHelper.getBlockId(Blocks.FERN))
             .addElement(ResourceLocationHelper.getBlockId(Blocks.LARGE_FERN))
             .addElement(ResourceLocationHelper.getBlockId(Blocks.GRASS_BLOCK))

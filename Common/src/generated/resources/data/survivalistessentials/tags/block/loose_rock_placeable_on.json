@@ -12,6 +12,8 @@
     "minecraft:copper_ore",
     "minecraft:mossy_cobblestone",
     "minecraft:red_sandstone",
+    "minecraft:podzol",
+    "minecraft:mycelium",
     {
       "id": "#c:gravels",
       "required": false
