@@ -1,6 +1,6 @@
 package survivalistessentials.items.item;
 
-import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.NonNull;
 
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.Holder;
@@ -33,7 +33,7 @@ public class ItemBase extends Item {
     }
 
     @Override
-    public @NotNull ItemStack finishUsingItem(@NotNull ItemStack stack, @NotNull Level level, @NotNull LivingEntity entity) {
+    public @NonNull ItemStack finishUsingItem(@NonNull ItemStack stack, @NonNull Level level, @NonNull LivingEntity entity) {
         Player player = entity instanceof Player ? (Player)entity : null;
 
         if (player instanceof ServerPlayer) {
@@ -75,7 +75,7 @@ public class ItemBase extends Item {
     }
 
     @Override
-    public @NotNull InteractionResult use(@NotNull Level level, Player player, @NotNull InteractionHand hand) {
+    public @NonNull InteractionResult use(@NonNull Level level, Player player, @NonNull InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         String name = BuiltInRegistries.ITEM.getKey(stack.getItem()).getPath();
         boolean stopBleeding = player.hasEffect(BuiltInRegistries.MOB_EFFECT.wrapAsHolder(SurvivalistEssentialsEffects.STOP_BLEEDING));
@@ -94,12 +94,12 @@ public class ItemBase extends Item {
     }
 
     @Override
-    public @NotNull ItemUseAnimation getUseAnimation(@NotNull ItemStack stack) {
+    public @NonNull ItemUseAnimation getUseAnimation(@NonNull ItemStack stack) {
         return animation;
     }
 
     @Override
-    public int getUseDuration(@NotNull ItemStack pStack, @NotNull LivingEntity pEntity) {
+    public int getUseDuration(@NonNull ItemStack pStack, @NonNull LivingEntity pEntity) {
         return 1;
     }
 

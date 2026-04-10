@@ -2,7 +2,7 @@ package survivalistessentials.loot;
 
 import java.util.function.Supplier;
 
-import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.NonNull;
 
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.mojang.serialization.MapCodec;
@@ -52,15 +52,15 @@ public class SurvivalistEssentialsLootTables extends SurvivalistEssentialsModule
         }
 
         @Override
-        @NotNull
-        protected ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, @NotNull LootContext context) {
+        @NonNull
+        protected ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, @NonNull LootContext context) {
             generatedLoot.add(stack.create());
 
             return generatedLoot;
         }
 
         @Override
-        public @NotNull MapCodec<? extends IGlobalLootModifier> codec() {
+        public @NonNull MapCodec<? extends IGlobalLootModifier> codec() {
             return ADD_LOOT.get();
         }
 

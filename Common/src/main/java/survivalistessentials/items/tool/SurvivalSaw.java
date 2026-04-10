@@ -2,7 +2,7 @@ package survivalistessentials.items.tool;
 
 import java.util.Objects;
 
-import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.NonNull;
 
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.BlockPos;
@@ -32,9 +32,9 @@ public class SurvivalSaw extends RecipeRemainderTieredItem {
         this.name = name;
     }
 
-    @NotNull
+    @NonNull
     @Override
-    public ItemStack getRemainingItem(@NotNull ItemStack stack) {
+    public ItemStack getRemainingItem(@NonNull ItemStack stack) {
         ItemStack container = stack.copy();
 
         if (Objects.equals(this.name, "saw_handle")) {
@@ -54,12 +54,12 @@ public class SurvivalSaw extends RecipeRemainderTieredItem {
     }
 
     @Override
-    public float getDestroySpeed(@NotNull ItemStack pStack, BlockState pState) {
+    public float getDestroySpeed(@NonNull ItemStack pStack, BlockState pState) {
         return !pState.is(TagManager.Blocks.ALWAYS_BREAKABLE) ? this.speed : 1.0F;
     }
 
     @Override
-    public boolean mineBlock(@NotNull ItemStack pStack, Level pLevel, @NotNull BlockState pState, @NotNull BlockPos pPos, @NotNull LivingEntity pEntityLiving) {
+    public boolean mineBlock(@NonNull ItemStack pStack, Level pLevel, @NonNull BlockState pState, @NonNull BlockPos pPos, @NonNull LivingEntity pEntityLiving) {
           if (!pLevel.isClientSide() && pState.getDestroySpeed(pLevel, pPos) != 0.0F) {
               Tool tool = (Tool)pStack.get(DataComponents.TOOL);
               if (tool == null) {
@@ -75,11 +75,11 @@ public class SurvivalSaw extends RecipeRemainderTieredItem {
     }
 
     @Override
-    public @NotNull InteractionResult useOn(@NotNull UseOnContext pContext) {
+    public @NonNull InteractionResult useOn(@NonNull UseOnContext pContext) {
         return InteractionResult.FAIL;
     }
 
     @Override
-    public void hurtEnemy(@NotNull ItemStack pStack, @NotNull LivingEntity pTarget, @NotNull LivingEntity pAttacker) {}
+    public void hurtEnemy(@NonNull ItemStack pStack, @NonNull LivingEntity pTarget, @NonNull LivingEntity pAttacker) {}
 
 }

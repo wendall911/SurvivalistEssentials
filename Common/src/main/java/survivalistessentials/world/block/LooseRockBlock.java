@@ -1,7 +1,7 @@
 package survivalistessentials.world.block;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -27,8 +27,8 @@ public class LooseRockBlock extends Block {
     }
 
     @Override
-    protected void neighborChanged(BlockState state, @NotNull Level level, @NotNull BlockPos pos,
-                                   @NotNull Block block, @Nullable Orientation orientation, boolean isMoving) {
+    protected void neighborChanged(BlockState state, @NonNull Level level, @NonNull BlockPos pos,
+                                   @NonNull Block block, @Nullable Orientation orientation, boolean isMoving) {
         if (!state.canSurvive(level, pos) && !level.isClientSide()) {
             level.destroyBlock(pos, true);
         }
@@ -36,14 +36,14 @@ public class LooseRockBlock extends Block {
 
 
     @Override
-    public boolean canSurvive(@NotNull BlockState state, LevelReader level, BlockPos pos) {
+    public boolean canSurvive(@NonNull BlockState state, LevelReader level, BlockPos pos) {
         BlockState stateUnder = level.getBlockState(pos.below());
         return stateUnder.isFaceSturdy(level, pos.below(), Direction.UP);
     }
 
     @Override
-    public @NotNull VoxelShape getShape(@NotNull BlockState state, @NotNull BlockGetter blockGetter,
-                                        @NotNull BlockPos pos, @NotNull CollisionContext context) {
+    public @NonNull VoxelShape getShape(@NonNull BlockState state, @NonNull BlockGetter blockGetter,
+                                        @NonNull BlockPos pos, @NonNull CollisionContext context) {
         return rockHitbox;
     }
 

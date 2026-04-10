@@ -1,6 +1,6 @@
 package survivalistessentials.items.item;
 
-import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.NonNull;
 
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -13,9 +13,9 @@ public class Mortar extends RecipeRemainderItem {
         super(tabGroup);
     }
 
-    @NotNull
+    @NonNull
     @Override
-    public ItemStack getRemainingItem(@NotNull ItemStack stack) {
+    public ItemStack getRemainingItem(@NonNull ItemStack stack) {
         return stack.copy();
     }
 

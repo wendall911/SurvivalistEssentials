@@ -2,7 +2,7 @@ package survivalistessentials.data.recipe;
 
 import java.util.concurrent.CompletableFuture;
 
-import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.NonNull;
 
 import net.minecraft.advancements.Criterion;
 import net.minecraft.advancements.criterion.InventoryChangeTrigger.TriggerInstance;
@@ -29,14 +29,14 @@ public class NeoForgeRecipeProvider extends RecipeProvider.Runner implements ISu
     }
 
     @Override
-    protected @NotNull RecipeProvider createRecipeProvider(HolderLookup.@NotNull Provider provider, @NotNull RecipeOutput recipeOutput) {
+    protected @NonNull RecipeProvider createRecipeProvider(HolderLookup.@NonNull Provider provider, @NonNull RecipeOutput recipeOutput) {
         internalRecipeProvider = new InternalRecipeProvider(provider, recipeOutput);
 
         return internalRecipeProvider;
     }
 
     @Override
-    public @NotNull String getName() {
+    public @NonNull String getName() {
         return SurvivalistEssentials.MOD_NAME + " - NeoForge Recipes";
     }
 

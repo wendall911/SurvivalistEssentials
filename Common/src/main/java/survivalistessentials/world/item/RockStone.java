@@ -2,7 +2,7 @@ package survivalistessentials.world.item;
 
 import java.util.Objects;
 
-import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.NonNull;
 
 import net.minecraft.core.NonNullList;
 import net.minecraft.sounds.SoundSource;
@@ -28,7 +28,7 @@ public class RockStone extends Item {
     }
 
     @Override
-    public @NotNull InteractionResult useOn(UseOnContext context) {
+    public @NonNull InteractionResult useOn(UseOnContext context) {
         BlockState state = context.getLevel().getBlockState(context.getClickedPos());
         Level level = context.getLevel();
         Player player = context.getPlayer();
@@ -62,8 +62,8 @@ public class RockStone extends Item {
     }
 
     @Override
-    @NotNull
-    public InteractionResult use(@NotNull Level level, @NotNull Player player, @NotNull InteractionHand hand) {
+    @NonNull
+    public InteractionResult use(@NonNull Level level, @NonNull Player player, @NonNull InteractionHand hand) {
         return InteractionResult.FAIL;
     }
 

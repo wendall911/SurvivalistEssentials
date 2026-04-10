@@ -2,7 +2,7 @@ package survivalistessentials.data;
 
 import java.util.concurrent.CompletableFuture;
 
-import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.NonNull;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
@@ -25,7 +25,7 @@ public class CommonBlockTagsProvider extends IntrinsicHolderTagsProvider<Block> 
     }
 
     @Override
-    protected void addTags(HolderLookup.@NotNull Provider provider) {
+    protected void addTags(HolderLookup.@NonNull Provider provider) {
         getOrCreateRawBuilder(TagManager.Blocks.ALWAYS_BREAKABLE)
             .addTag(TagManager.Blocks.LOOSE_ROCKS.location())
             .addElement(ResourceLocationHelper.getBlockId(Blocks.GRAVEL))

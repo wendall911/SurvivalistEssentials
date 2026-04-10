@@ -7,7 +7,7 @@ import java.util.Set;
 import java.util.function.BiConsumer;
 import java.util.stream.Collectors;
 
-import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.NonNull;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -57,7 +57,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
      * Implements overrride similar to NeoForge's BlockLootSubProvider to only output loot tables for this mods blocks.
      */
     @Override
-    public void generate(@NotNull BiConsumer<ResourceKey<LootTable>, Builder> output) {
+    public void generate(@NonNull BiConsumer<ResourceKey<LootTable>, Builder> output) {
         this.generate();
         Set<ResourceKey<LootTable>> set = new HashSet<>();
         BlockLootSubProviderAccessor accessor = (BlockLootSubProviderAccessor) this;

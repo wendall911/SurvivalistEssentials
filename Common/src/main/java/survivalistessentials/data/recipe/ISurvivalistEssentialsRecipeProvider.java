@@ -1,6 +1,6 @@
 package survivalistessentials.data.recipe;
 
-import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.NonNull;
 
 import net.minecraft.advancements.Criterion;
 import net.minecraft.advancements.criterion.InventoryChangeTrigger;
@@ -43,7 +43,7 @@ public interface ISurvivalistEssentialsRecipeProvider {
 
     Criterion<InventoryChangeTrigger.TriggerInstance> _has(TagKey<Item> tag);
 
-    default void buildModRecipes(HolderLookup.Provider registries, @NotNull RecipeOutput recipeOutput) {
+    default void buildModRecipes(HolderLookup.Provider registries, @NonNull RecipeOutput recipeOutput) {
         HolderLookup.RegistryLookup<Item> itemRegistry = registries.lookupOrThrow(Registries.ITEM);
         ItemLike rockStone = SurvivalistEssentialsWorld.ROCK_STONE;
         ItemLike flintShard = SurvivalistEssentialsItems.FLINT_SHARD;

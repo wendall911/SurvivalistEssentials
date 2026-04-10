@@ -2,7 +2,7 @@ package survivalistessentials.util;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.Nullable;
 
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;

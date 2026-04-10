@@ -1,6 +1,6 @@
 package survivalistessentials.items.tool;
 
-import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.NonNull;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -19,9 +19,9 @@ public class SurvivalKnife extends RecipeRemainderSwordItem {
         super(properties);
     }
 
-    @NotNull
+    @NonNull
     @Override
-    public ItemStack getRemainingItem(@NotNull ItemStack stack) {
+    public ItemStack getRemainingItem(@NonNull ItemStack stack) {
         ItemStack container = stack.copy();
 
         container.setDamageValue(container.getDamageValue() + 1);
@@ -37,7 +37,7 @@ public class SurvivalKnife extends RecipeRemainderSwordItem {
     }
 
     @Override
-    public boolean mineBlock(@NotNull ItemStack knife, @NotNull Level level, BlockState state, @NotNull BlockPos pos, @NotNull LivingEntity player) {
+    public boolean mineBlock(@NonNull ItemStack knife, @NonNull Level level, BlockState state, @NonNull BlockPos pos, @NonNull LivingEntity player) {
         float destroySpeed = state.getDestroySpeed(level, pos);
 
         if (destroySpeed != 0.0F) {

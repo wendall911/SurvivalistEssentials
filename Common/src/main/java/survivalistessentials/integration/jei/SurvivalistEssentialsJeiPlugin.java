@@ -5,7 +5,7 @@ package survivalistessentials.integration.jei;
 
 import java.util.Collections;
 
-import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.NonNull;
 
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
@@ -33,12 +33,12 @@ import static survivalistessentials.util.ResourceLocationHelper.prefix;
 public class SurvivalistEssentialsJeiPlugin implements IModPlugin {
 
     @Override
-    public @NotNull Identifier getPluginUid() {
+    public @NonNull Identifier getPluginUid() {
         return prefix("jei_plugin");
     }
 
     @Override
-    public void registerRecipes(@NotNull IRecipeRegistration registry) {
+    public void registerRecipes(@NonNull IRecipeRegistration registry) {
         addIngredientInfo(registry, SurvivalistEssentialsWorld.ROCK_STONE);
         addIngredientInfo(registry, SurvivalistEssentialsItems.PLANT_FIBER);
         addIngredientInfo(registry, SurvivalistEssentialsItems.FLINT_SHARD);

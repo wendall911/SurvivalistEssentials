@@ -1,6 +1,6 @@
 package survivalistessentials.items.tool;
 
-import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.NonNull;
 
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ToolMaterial;
@@ -13,9 +13,9 @@ public class CrudeHatchet extends RecipeRemainderAxeItem {
         super(toolMaterial, attackDamage, attackSpeed, properties);
     }
 
-    @NotNull
+    @NonNull
     @Override
-    public ItemStack getRemainingItem(@NotNull ItemStack stack) {
+    public ItemStack getRemainingItem(@NonNull ItemStack stack) {
         ItemStack container = stack.copy();
 
         container.setDamageValue(container.getDamageValue() + 1);

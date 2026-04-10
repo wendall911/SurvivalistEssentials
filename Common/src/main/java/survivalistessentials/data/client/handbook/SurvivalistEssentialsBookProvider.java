@@ -3,7 +3,7 @@ package survivalistessentials.data.client.handbook;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 
-import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.NonNull;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderLookup.Provider;
@@ -23,7 +23,7 @@ import static survivalistessentials.util.ResourceLocationHelper.prefix;
 
 public class SurvivalistEssentialsBookProvider extends HandbookBookProvider {
 
-    public SurvivalistEssentialsBookProvider(@NotNull final PackOutput packOutput, CompletableFuture<Provider> lookupProvider) {
+    public SurvivalistEssentialsBookProvider(@NonNull final PackOutput packOutput, CompletableFuture<Provider> lookupProvider) {
         super(packOutput, SurvivalistEssentials.MODID, "en_us", lookupProvider);
     }
 

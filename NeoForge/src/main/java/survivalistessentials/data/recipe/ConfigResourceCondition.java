@@ -1,6 +1,6 @@
 package survivalistessentials.data.recipe;
 
-import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.NonNull;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
@@ -18,17 +18,17 @@ public record ConfigResourceCondition(String configValue) implements ICondition 
     ).apply(b, ConfigResourceCondition::new));
 
     @Override
-    public @NotNull String toString() {
+    public @NonNull String toString() {
         return ID + "(\"" + configValue + "\")";
     }
 
     @Override
-    public boolean test(@NotNull IContext context) {
+    public boolean test(@NonNull IContext context) {
         return !ConfigHandler.Common.getConfigValue(configValue);
     }
 
     @Override
-    public @NotNull MapCodec<? extends ICondition> codec() {
+    public @NonNull MapCodec<? extends ICondition> codec() {
         return CODEC;
     }
 

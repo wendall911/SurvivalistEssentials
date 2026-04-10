@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Function;
 
-import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.NonNull;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderLookup.Provider;
@@ -32,7 +32,7 @@ public class CommonItemTagsProvider extends IntrinsicHolderTagsProvider<Item> {
     }
 
     @Override
-    protected void addTags(HolderLookup.@NotNull Provider provider) {
+    protected void addTags(HolderLookup.@NonNull Provider provider) {
         getOrCreateRawBuilder(TagManager.Items.PICKAXE_TOOLS)
             .addOptionalTag(TagManager.Items.MINING_TOOL_TOOLS.location())
             .addOptionalTag(SurvivalistEssentialsIntegration.mcLoc("pickaxes"))

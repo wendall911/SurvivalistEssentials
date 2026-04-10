@@ -1,6 +1,6 @@
 package survivalistessentials.world.effect;
 
-import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.NonNull;
 
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.effect.MobEffect;
@@ -16,7 +16,7 @@ public class ZombieEssence extends MobEffect {
     }
 
     @Override
-    public boolean applyEffectTick(@NotNull ServerLevel level, @NotNull LivingEntity entity, int amplifier) {
+    public boolean applyEffectTick(@NonNull ServerLevel level, @NonNull LivingEntity entity, int amplifier) {
         /*
         World world = entity.getEntityWorld();
         boolean noGravity = false;

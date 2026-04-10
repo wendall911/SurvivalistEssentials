@@ -2,7 +2,7 @@ package survivalistessentials.data.loot;
 
 import java.util.concurrent.CompletableFuture;
 
-import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.NonNull;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
@@ -11,7 +11,6 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
@@ -31,7 +30,7 @@ public class GlobalLootModifier extends GlobalLootModifierProvider {
     }
 
     @Override
-    public @NotNull String getName() {
+    public @NonNull String getName() {
         return "SurvivalistEssentials - Global Loot Modifier";
     }
 
