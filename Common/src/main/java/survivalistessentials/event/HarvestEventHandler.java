@@ -11,6 +11,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+
 import org.apache.commons.lang3.tuple.Pair;
 
 import survivalistessentials.common.HarvestBlock;
@@ -25,7 +26,7 @@ import survivalistessentials.util.ItemUse;
 import survivalistessentials.util.ResourceLocationHelper;
 import survivalistessentials.util.ToolType;
 
-import static technology.roughness.whitenoise.platform.Services.PLATFORM;
+import static technology.roughness.whitenoise.platform.Services.WN_PLATFORM;
 
 public class HarvestEventHandler {
 
@@ -40,7 +41,7 @@ public class HarvestEventHandler {
         boolean alwaysBreakable = state.is(TagManager.Blocks.ALWAYS_BREAKABLE) ||
             ItemUse.isAlwaysBreakable(state);
 
-        if (PLATFORM.isModLoaded(SurvivalistEssentialsIntegration.CARRYON_MODID)) {
+        if (WN_PLATFORM.isModLoaded(SurvivalistEssentialsIntegration.CARRYON_MODID)) {
             final ItemStack handStack = player.getMainHandItem();
             final ItemStack offhandStack = player.getOffhandItem();
 
@@ -51,7 +52,7 @@ public class HarvestEventHandler {
             }
         }
 
-        if (PLATFORM.isModLoaded(SurvivalistEssentialsIntegration.CREATE_MODID)) {
+        if (WN_PLATFORM.isModLoaded(SurvivalistEssentialsIntegration.CREATE_MODID)) {
             final ItemStack handStack = player.getMainHandItem();
 
             if (ResourceLocationHelper.getModId(handStack).equals(SurvivalistEssentialsIntegration.CREATE_MODID)

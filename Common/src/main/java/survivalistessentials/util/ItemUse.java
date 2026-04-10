@@ -188,7 +188,7 @@ public class ItemUse {
 
     public static boolean isAlwaysBreakable(BlockState state) {
         if (((AbstractBlockStateAccessor) state).getDestroySpeed() == 0) {
-            if (!Services.PLATFORM.isModLoaded(SurvivalistEssentialsIntegration.DYNAMICTREES_MODID)) {
+            if (!Services.WN_PLATFORM.isModLoaded(SurvivalistEssentialsIntegration.DYNAMICTREES_MODID)) {
                 return true;
             }
             else {

@@ -26,7 +26,7 @@ public class SurvivalistEssentials {
         commonConfig.addLoadListener((config, flags) -> {
             ConfigHandler.init();
         });
-        if (Services.PLATFORM.isPhysicalClient()) {
+        if (Services.WN_PLATFORM.isPhysicalClient()) {
             WhiteNoiseConfigLoader.add(WhiteNoiseConfig.Type.CLIENT, ConfigHandler.CLIENT_SPEC, SurvivalistEssentials.MODID);
         }
     }

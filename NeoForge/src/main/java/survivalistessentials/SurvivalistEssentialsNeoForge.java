@@ -73,7 +73,7 @@ public class SurvivalistEssentialsNeoForge {
             NeoForge.EVENT_BUS.register(LivingEquipmentChangeEvents.class);
             NeoForge.EVENT_BUS.register(PlayerEvents.class);
 
-            if (Services.PLATFORM.isPhysicalClient()) {
+            if (Services.WN_PLATFORM.isPhysicalClient()) {
                 NeoForge.EVENT_BUS.register(TooltipEvents.class);
                 NeoForge.EVENT_BUS.register(ClientEvents.class);
             }

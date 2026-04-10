@@ -14,8 +14,8 @@ import survivalistessentials.data.integration.SurvivalistEssentialsIntegration;
 public class ClientEventHandler {
 
     public static void clientPlayerLogin(Player player) {
-        if (!Services.PLATFORM.isModLoaded(SurvivalistEssentialsIntegration.TS_MODID)
-            && Services.PLATFORM.isModLoaded(SurvivalistEssentialsIntegration.TCON_MODID)
+        if (!Services.WN_PLATFORM.isModLoaded(SurvivalistEssentialsIntegration.TS_MODID)
+            && Services.WN_PLATFORM.isModLoaded(SurvivalistEssentialsIntegration.TCON_MODID)
             && ConfigHandler.Client.informTConCompat()) {
             Component message = Component.translatable("message.survivalistessentials.tcon_compat")
                 .withStyle(ChatFormatting.DARK_GREEN);
