@@ -9,6 +9,7 @@
     "AbstractBlockStateAccessor",
     "AbstractHurtingProjectileMixin",
     "BlockLootSubProviderAccessor",
+    "CraftingRecipeMixin",
     "HoeItemMixin",
     "ItemMixin",
     "LivingEntityMixin"

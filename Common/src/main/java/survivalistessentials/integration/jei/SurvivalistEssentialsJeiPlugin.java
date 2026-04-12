@@ -1,8 +1,5 @@
 package survivalistessentials.integration.jei;
 
-// TODO re-enable JEI integration once available on 1.21.11
-/*
-
 import java.util.Collections;
 
 import org.jspecify.annotations.NonNull;
@@ -44,7 +41,7 @@ public class SurvivalistEssentialsJeiPlugin implements IModPlugin {
         addIngredientInfo(registry, SurvivalistEssentialsItems.FLINT_SHARD);
         addIngredientInfo(registry, Items.STICK);
 
-        if (Services.PLATFORM.isModLoaded(SurvivalistEssentialsIntegration.TS_MODID)) {
+        if (Services.WN_PLATFORM.isModLoaded(SurvivalistEssentialsIntegration.TS_MODID)) {
             registry.getIngredientManager().removeIngredientsAtRuntime(VanillaTypes.ITEM_STACK,
                 Collections.singleton(new ItemStack(SurvivalistEssentialsItems.BASIC_SAW_BLADE)));
             registry.getIngredientManager().removeIngredientsAtRuntime(VanillaTypes.ITEM_STACK,
@@ -76,5 +73,3 @@ public class SurvivalistEssentialsJeiPlugin implements IModPlugin {
     }
 
 }
-
- */

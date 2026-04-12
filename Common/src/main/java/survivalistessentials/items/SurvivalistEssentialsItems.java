@@ -139,7 +139,7 @@ public final class SurvivalistEssentialsItems {
     }
 
     private static Item registerMortar(String name) {
-        return make(name, new Mortar(new Item.Properties().setId(ResourceKey.create(Registries.ITEM, prefix(name)))), false, false);
+        return make(name, new Mortar(new Item.Properties().setId(ResourceKey.create(Registries.ITEM, prefix(name)))), false, true);
     }
 
     public static Item registerBook(String name, boolean noCategory) {

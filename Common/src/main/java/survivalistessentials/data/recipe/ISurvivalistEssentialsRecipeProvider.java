@@ -83,11 +83,9 @@ public interface ISurvivalistEssentialsRecipeProvider {
             .unlockedBy("has_plant_fiber", _has(plantFiber))
             .save(recipeOutput);
 
-        ShapedRecipeBuilder.shaped(itemRegistry, RecipeCategory.MISC, plantPaste)
-            .define('F', plantFiber)
-            .define('U', mortar)
-            .pattern("F")
-            .pattern("U")
+        ShapelessRecipeBuilder.shapeless(itemRegistry, RecipeCategory.MISC, plantPaste)
+            .requires(plantFiber)
+            .requires(mortar)
             .unlockedBy("has_plant_fiber", _has(plantFiber))
             .save(recipeOutput);
 
