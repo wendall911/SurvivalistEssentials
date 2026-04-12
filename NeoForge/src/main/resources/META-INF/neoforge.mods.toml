@@ -37,6 +37,12 @@ issueTrackerURL="https://github.com/${mod_author}/${mod_name}/issues"
     ordering="NONE"
     side="BOTH"
 [[dependencies.${mod_id}]]
+    modId="handbook"
+    type="required"
+    versionRange="${handbook_range}"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.${mod_id}]]
     modId="fruitfulfun"
     type="optional"
     versionRange="[0,)"
