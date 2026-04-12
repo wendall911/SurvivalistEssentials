@@ -1,13 +1,9 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "minecraft:crafting_shapeless",
   "category": "misc",
-  "key": {
-    "F": "survivalistessentials:plant_fiber",
-    "U": "survivalistessentials:mortar_and_pestle"
-  },
-  "pattern": [
-    "F",
-    "U"
+  "ingredients": [
+    "survivalistessentials:plant_fiber",
+    "survivalistessentials:mortar_and_pestle"
   ],
   "result": {
     "id": "survivalistessentials:plant_paste"
