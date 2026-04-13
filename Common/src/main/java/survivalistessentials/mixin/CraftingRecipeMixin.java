@@ -20,37 +20,35 @@ public interface CraftingRecipeMixin {
 
     @Inject(method = "defaultCraftingReminder", at = @At("HEAD"), cancellable = true)
     private static void se$defaultCraftingRemainder(CraftingInput input, CallbackInfoReturnable<NonNullList<ItemStack>> cir) {
-        if (input.size() == 2) {
-            NonNullList<ItemStack> remaining = NonNullList.withSize(input.size(), ItemStack.EMPTY);
-            boolean hasRemainder = false;
+        NonNullList<ItemStack> remaining = NonNullList.withSize(input.size(), ItemStack.EMPTY);
+        boolean hasRemainder = false;
 
-            for (int slot = 0; slot < remaining.size(); slot++) {
-                ItemStack stack = input.getItem(slot);
+        for (int slot = 0; slot < remaining.size(); slot++) {
+            ItemStack stack = input.getItem(slot);
 
-                if (!stack.isEmpty()) {
-                    ItemStackTemplate remainder = stack.getItem().getCraftingRemainder();
+            if (!stack.isEmpty()) {
+                ItemStackTemplate remainder = stack.getItem().getCraftingRemainder();
 
-                    if (remainder != null) {
-                        remaining.set(slot, remainder.create());
-                    }
-                    else if (stack.getItem() instanceof SurvivalSaw saw) {
-                        remaining.set(slot, saw.getRemainingItem(stack));
-                        hasRemainder = true;
-                    }
-                    else if (stack.getItem() instanceof SurvivalKnife knife) {
-                        remaining.set(slot, knife.getRemainingItem(stack));
-                        hasRemainder = true;
-                    }
-                    else if (stack.getItem() instanceof Mortar) {
-                        remaining.set(slot, stack.copy());
-                        hasRemainder = true;
-                    }
+                if (remainder != null) {
+                    remaining.set(slot, remainder.create());
+                }
+                else if (stack.getItem() instanceof SurvivalSaw saw) {
+                    remaining.set(slot, saw.getRemainingItem(stack));
+                    hasRemainder = true;
+                }
+                else if (stack.getItem() instanceof SurvivalKnife knife) {
+                    remaining.set(slot, knife.getRemainingItem(stack));
+                    hasRemainder = true;
+                }
+                else if (stack.getItem() instanceof Mortar) {
+                    remaining.set(slot, stack.copy());
+                    hasRemainder = true;
                 }
             }
+        }
 
-            if (hasRemainder) {
-                cir.setReturnValue(remaining);
-            }
+        if (hasRemainder) {
+            cir.setReturnValue(remaining);
         }
     }
 
