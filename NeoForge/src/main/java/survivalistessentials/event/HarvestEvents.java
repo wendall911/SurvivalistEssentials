@@ -7,7 +7,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.common.util.FakePlayer;
 import net.neoforged.neoforge.event.level.LevelEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
-import net.neoforged.neoforge.event.level.BlockEvent;
+import net.neoforged.neoforge.event.level.block.BreakBlockEvent;
 
 import org.apache.commons.lang3.tuple.Pair;
 
@@ -21,7 +21,7 @@ public class HarvestEvents {
     }
 
     @SubscribeEvent
-    public static void breakBlock(BlockEvent.BreakEvent event) {
+    public static void breakBlock(BreakBlockEvent event) {
         if (event.getPlayer() instanceof FakePlayer) return;
 
         if (HarvestEventHandler.shouldCancelBreakBlock(event.getLevel(), event.getPos(), event.getPlayer())) {

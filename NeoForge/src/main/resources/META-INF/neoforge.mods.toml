@@ -21,7 +21,7 @@ issueTrackerURL="https://github.com/${mod_author}/${mod_name}/issues"
 [[dependencies.${mod_id}]]
     modId="neoforge"
     type="required"
-    versionRange="${neoforge_loader_version_range}"
+    versionRange="${neoforge_version_range}"
     ordering="NONE"
     side="BOTH"
 [[dependencies.${mod_id}]]

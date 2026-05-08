@@ -37,8 +37,8 @@ public class SurvivalistEssentialsLootTables extends SurvivalistEssentialsModule
 
         private final ItemStackTemplate stack;
 
-        public LootTableModifier(LootItemCondition[] conditionsIn, ItemStackTemplate itemStack) {
-            super(conditionsIn);
+        public LootTableModifier(LootItemCondition[] conditionsIn, int priority, ItemStackTemplate itemStack) {
+            super(conditionsIn, priority);
 
             this.stack = itemStack;
         }

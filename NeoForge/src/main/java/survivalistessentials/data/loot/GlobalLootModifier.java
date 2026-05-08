@@ -47,6 +47,7 @@ public class GlobalLootModifier extends GlobalLootModifierProvider {
             "plant_fiber_from_" + name,
             new SurvivalistEssentialsLootTables.LootTableModifier(
                 LootConditionHelper.createKnifeChanceCondition(0.16F, tag, itemRegistryLookup),
+                1000,
                 new ItemStackTemplate(SurvivalistEssentialsItems.PLANT_FIBER)
             )
         );
@@ -61,6 +62,7 @@ public class GlobalLootModifier extends GlobalLootModifierProvider {
             "stick_drops_from_" + name,
             new SurvivalistEssentialsLootTables.LootTableModifier(
                 LootConditionHelper.createKnifeChanceCondition(0.16F, tag, itemRegistryLookup),
+                1000,
                 new ItemStackTemplate(Items.STICK)
             )
         );
@@ -69,6 +71,7 @@ public class GlobalLootModifier extends GlobalLootModifierProvider {
             "extra_stick_drops_from_" + name,
             new SurvivalistEssentialsLootTables.LootTableModifier(
                 LootConditionHelper.createExtraStickDropConditions(0.16F, tag, enchantmentRegistryLookup, itemRegistryLookup, entityRegistryLookup),
+                1000,
                 new ItemStackTemplate(Items.STICK)
             )
         );
