@@ -27,7 +27,7 @@ public class AttackEventHandler {
                 }
 
                 if (checkAllowed && (handStack.is(Items.AIR) || !ItemUse.isAllowedTool(handStack))) {
-                    if (!level.isClientSide && ConfigHandler.Client.enableFailSound() && ConfigHandler.Common.genericDamage() == 0.0F) {
+                    if (level.isClientSide && ConfigHandler.Client.enableFailSound() && ConfigHandler.Common.genericDamage() == 0.0F) {
                         level.playSound(null, player.getOnPos(), SurvivalistEssentialsSounds.SWORD_FAIL, SoundSource.PLAYERS, 0.4F, 1.0F);
                     }
 
