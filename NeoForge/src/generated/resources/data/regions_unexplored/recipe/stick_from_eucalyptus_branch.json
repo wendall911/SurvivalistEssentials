@@ -6,7 +6,6 @@
     }
   ],
   "type": "minecraft:crafting_shapeless",
-  "category": "misc",
   "group": "sticks",
   "ingredients": [
     "regions_unexplored:eucalyptus_branch",

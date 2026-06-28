@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "S": "survivalistessentials:flint_shard"
   },
@@ -9,7 +8,6 @@
     "SS"
   ],
   "result": {
-    "count": 1,
     "id": "minecraft:flint"
   }
 }

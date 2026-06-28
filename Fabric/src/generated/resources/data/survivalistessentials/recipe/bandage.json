@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "C": "survivalistessentials:cloth",
     "O": "survivalistessentials:ointment",

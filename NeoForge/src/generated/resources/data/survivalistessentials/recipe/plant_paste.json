@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "category": "misc",
   "ingredients": [
     "survivalistessentials:plant_fiber",
     "survivalistessentials:mortar_and_pestle"

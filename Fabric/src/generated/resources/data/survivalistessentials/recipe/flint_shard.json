@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "category": "misc",
   "group": "flint_shards",
   "ingredients": [
     "survivalistessentials:rock_stone",

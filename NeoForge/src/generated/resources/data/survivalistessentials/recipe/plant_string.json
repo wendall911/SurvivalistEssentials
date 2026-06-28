@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "F": "survivalistessentials:plant_fiber"
   },
@@ -9,7 +8,6 @@
     "F "
   ],
   "result": {
-    "count": 1,
     "id": "survivalistessentials:plant_string"
   }
 }

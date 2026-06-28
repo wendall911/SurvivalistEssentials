@@ -1,7 +1,6 @@
 {
   "type": "survivalistessentials:add_loot",
   "additional": {
-    "count": 1,
     "id": "minecraft:stick"
   },
   "conditions": [
@@ -13,7 +12,7 @@
       "condition": "minecraft:entity_properties",
       "entity": "this",
       "predicate": {
-        "type": "minecraft:player"
+        "minecraft:entity_type": "minecraft:player"
       }
     },
     {

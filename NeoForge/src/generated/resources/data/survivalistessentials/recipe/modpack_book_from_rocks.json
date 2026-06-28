@@ -6,14 +6,12 @@
     }
   ],
   "type": "minecraft:crafting_shapeless",
-  "category": "misc",
   "group": "books",
   "ingredients": [
     "survivalistessentials:rock_stone",
     "survivalistessentials:rock_stone"
   ],
   "result": {
-    "count": 1,
     "id": "survivalistessentials:modpack_book"
   }
 }
