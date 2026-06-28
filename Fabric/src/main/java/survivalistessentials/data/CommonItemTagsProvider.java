@@ -6,12 +6,14 @@ import java.util.function.Function;
 
 import org.jspecify.annotations.NonNull;
 
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagsProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderLookup.Provider;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.PackOutput;
-import net.minecraft.data.tags.IntrinsicHolderTagsProvider;
 import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.TagBuilder;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -24,11 +26,11 @@ import survivalistessentials.items.SurvivalistEssentialsItems;
 import survivalistessentials.util.ResourceLocationHelper;
 import survivalistessentials.world.SurvivalistEssentialsWorld;
 
-public class CommonItemTagsProvider extends IntrinsicHolderTagsProvider<Item> {
+public class CommonItemTagsProvider extends FabricTagsProvider<Item> {
 
     @SuppressWarnings("deprecation")
-    public CommonItemTagsProvider(PackOutput packOutput, CompletableFuture<Provider> lookupProvider) {
-        super(packOutput, Registries.ITEM, lookupProvider, (item) -> item.builtInRegistryHolder().key());
+    public CommonItemTagsProvider(FabricPackOutput packOutput, CompletableFuture<Provider> lookupProvider) {
+        super(packOutput, Registries.ITEM, lookupProvider);
     }
 
     @Override
@@ -442,7 +444,13 @@ public class CommonItemTagsProvider extends IntrinsicHolderTagsProvider<Item> {
     }
 
     private void builder(TagKey<Item> tag, ItemLike... items) {
-        this.tag(tag).add(Arrays.stream(items).map(ItemLike::asItem).toArray(Item[]::new));
+        Arrays.stream(Arrays.stream(items).map(ItemLike::asItem).toArray(Item[]::new)).iterator().forEachRemaining(item -> {
+            this.tag(tag).add(getItemKey(item));
+        });
+    }
+
+    private ResourceKey<Item> getItemKey(ItemLike item) {
+        return BuiltInRegistries.ITEM.getResourceKey(item.asItem()).orElseThrow();
     }
 
 }

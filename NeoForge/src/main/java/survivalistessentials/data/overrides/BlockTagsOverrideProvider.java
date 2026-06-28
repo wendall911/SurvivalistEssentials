@@ -1,21 +1,26 @@
 package survivalistessentials.data.overrides;
 
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
+import org.jspecify.annotations.NonNull;
+
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.tags.IntrinsicHolderTagsProvider;
+import net.minecraft.references.BlockItemId;
+import net.minecraft.references.BlockItemIds;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.WeatheringCopperCollection;
+import net.neoforged.neoforge.common.data.BlockTagsProvider;
 
 import survivalistessentials.SurvivalistEssentials;
 
-public class BlockTagsOverrideProvider extends IntrinsicHolderTagsProvider<Block> {
+public class BlockTagsOverrideProvider extends BlockTagsProvider {
 
     public BlockTagsOverrideProvider(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider) {
-        super(packOutput, Registries.BLOCK, lookupProvider, (block) -> block.builtInRegistryHolder().key(), SurvivalistEssentials.MODID);
+        super(packOutput, lookupProvider, SurvivalistEssentials.MODID);
     }
 
     @Override
@@ -24,13 +29,49 @@ public class BlockTagsOverrideProvider extends IntrinsicHolderTagsProvider<Block
     }
 
     @Override
-    protected void addTags(HolderLookup.Provider provider) {
+    protected void addTags(HolderLookup.@NonNull Provider provider) {
         this.tag(BlockTags.NEEDS_STONE_TOOL)
-            .add(Blocks.IRON_BLOCK, Blocks.RAW_IRON_BLOCK, Blocks.IRON_ORE, Blocks.DEEPSLATE_IRON_ORE, Blocks.LAPIS_BLOCK, Blocks.LAPIS_ORE, Blocks.DEEPSLATE_LAPIS_ORE, Blocks.COPPER_BLOCK, Blocks.RAW_COPPER_BLOCK, Blocks.COPPER_ORE, Blocks.DEEPSLATE_COPPER_ORE, Blocks.CUT_COPPER_SLAB, Blocks.CUT_COPPER_STAIRS, Blocks.CUT_COPPER, Blocks.WEATHERED_COPPER, Blocks.WEATHERED_CUT_COPPER_SLAB, Blocks.WEATHERED_CUT_COPPER_STAIRS, Blocks.WEATHERED_CUT_COPPER, Blocks.OXIDIZED_COPPER, Blocks.OXIDIZED_CUT_COPPER_SLAB, Blocks.OXIDIZED_CUT_COPPER_STAIRS, Blocks.OXIDIZED_CUT_COPPER, Blocks.EXPOSED_COPPER, Blocks.EXPOSED_CUT_COPPER_SLAB, Blocks.EXPOSED_CUT_COPPER_STAIRS, Blocks.EXPOSED_CUT_COPPER, Blocks.WAXED_COPPER_BLOCK, Blocks.WAXED_CUT_COPPER_SLAB, Blocks.WAXED_CUT_COPPER_STAIRS, Blocks.WAXED_CUT_COPPER, Blocks.WAXED_WEATHERED_COPPER, Blocks.WAXED_WEATHERED_CUT_COPPER_SLAB, Blocks.WAXED_WEATHERED_CUT_COPPER_STAIRS, Blocks.WAXED_WEATHERED_CUT_COPPER, Blocks.WAXED_EXPOSED_COPPER, Blocks.WAXED_EXPOSED_CUT_COPPER_SLAB, Blocks.WAXED_EXPOSED_CUT_COPPER_STAIRS, Blocks.WAXED_EXPOSED_CUT_COPPER, Blocks.WAXED_OXIDIZED_COPPER, Blocks.WAXED_OXIDIZED_CUT_COPPER_SLAB, Blocks.WAXED_OXIDIZED_CUT_COPPER_STAIRS, Blocks.WAXED_OXIDIZED_CUT_COPPER, Blocks.LIGHTNING_ROD);
+            .add(
+                BlockItemIds.IRON_BLOCK.block(),
+                BlockItemIds.RAW_IRON_BLOCK.block(),
+                BlockItemIds.IRON_ORE.block(),
+                BlockItemIds.DEEPSLATE_IRON_ORE.block(),
+                BlockItemIds.LAPIS_BLOCK.block(),
+                BlockItemIds.LAPIS_ORE.block(),
+                BlockItemIds.DEEPSLATE_LAPIS_ORE.block(),
+                BlockItemIds.RAW_COPPER_BLOCK.block(),
+                BlockItemIds.COPPER_ORE.block(),
+                BlockItemIds.DEEPSLATE_COPPER_ORE.block()
+            )
+            .addAll(toIds(BlockItemIds.COPPER_BLOCK))
+            .addTag(BlockTags.LIGHTNING_RODS);
         this.tag(BlockTags.NEEDS_IRON_TOOL)
-            .add(Blocks.DIAMOND_BLOCK, Blocks.DIAMOND_ORE, Blocks.DEEPSLATE_DIAMOND_ORE, Blocks.EMERALD_ORE, Blocks.DEEPSLATE_EMERALD_ORE, Blocks.EMERALD_BLOCK, Blocks.GOLD_BLOCK, Blocks.RAW_GOLD_BLOCK, Blocks.GOLD_ORE, Blocks.DEEPSLATE_GOLD_ORE, Blocks.REDSTONE_ORE, Blocks.DEEPSLATE_REDSTONE_ORE);
+            .add(
+                BlockItemIds.DIAMOND_BLOCK.block(),
+                BlockItemIds.DIAMOND_ORE.block(),
+                BlockItemIds.DEEPSLATE_DIAMOND_ORE.block(),
+                BlockItemIds.EMERALD_ORE.block(),
+                BlockItemIds.DEEPSLATE_EMERALD_ORE.block(),
+                BlockItemIds.EMERALD_BLOCK.block(),
+                BlockItemIds.GOLD_BLOCK.block(),
+                BlockItemIds.RAW_GOLD_BLOCK.block(),
+                BlockItemIds.GOLD_ORE.block(),
+                BlockItemIds.DEEPSLATE_GOLD_ORE.block(),
+                BlockItemIds.REDSTONE_ORE.block(),
+                BlockItemIds.DEEPSLATE_REDSTONE_ORE.block()
+            );
         this.tag(BlockTags.NEEDS_DIAMOND_TOOL)
-            .add(Blocks.OBSIDIAN, Blocks.CRYING_OBSIDIAN, Blocks.NETHERITE_BLOCK, Blocks.RESPAWN_ANCHOR, Blocks.ANCIENT_DEBRIS);
+            .add(
+                BlockItemIds.OBSIDIAN.block(),
+                BlockItemIds.CRYING_OBSIDIAN.block(),
+                BlockItemIds.NETHERITE_BLOCK.block(),
+                BlockItemIds.RESPAWN_ANCHOR.block(),
+                BlockItemIds.ANCIENT_DEBRIS.block()
+            );
+    }
+
+    private static List<ResourceKey<Block>> toIds(WeatheringCopperCollection<BlockItemId> ids) {
+        return ids.map(BlockItemId::block).asList();
     }
 
 }

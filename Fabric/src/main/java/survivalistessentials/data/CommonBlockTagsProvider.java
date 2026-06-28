@@ -4,12 +4,11 @@ import java.util.concurrent.CompletableFuture;
 
 import org.jspecify.annotations.NonNull;
 
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagsProvider;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.data.PackOutput;
-import net.minecraft.data.tags.IntrinsicHolderTagsProvider;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 
 import survivalistessentials.data.integration.SurvivalistEssentialsIntegration;
@@ -17,11 +16,11 @@ import survivalistessentials.common.TagManager;
 import survivalistessentials.util.ResourceLocationHelper;
 import survivalistessentials.world.SurvivalistEssentialsWorld;
 
-public class CommonBlockTagsProvider extends IntrinsicHolderTagsProvider<Block> {
+public class CommonBlockTagsProvider extends FabricTagsProvider.BlockTagsProvider {
 
     @SuppressWarnings("deprecation")
-    public CommonBlockTagsProvider(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider) {
-        super(packOutput, Registries.BLOCK, lookupProvider, (block) -> block.builtInRegistryHolder().key());
+    public CommonBlockTagsProvider(FabricPackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider) {
+        super(packOutput, lookupProvider);
     }
 
     @Override
@@ -82,12 +81,12 @@ public class CommonBlockTagsProvider extends IntrinsicHolderTagsProvider<Block> 
             .addOptionalTag(TagManager.Blocks.ORES_IRON.location());
 
         this.tag(TagManager.Blocks.LOOSE_ROCKS)
-            .add(SurvivalistEssentialsWorld.ANDESITE_LOOSE_ROCK)
-            .add(SurvivalistEssentialsWorld.DIORITE_LOOSE_ROCK)
-            .add(SurvivalistEssentialsWorld.GRANITE_LOOSE_ROCK)
-            .add(SurvivalistEssentialsWorld.STONE_LOOSE_ROCK)
-            .add(SurvivalistEssentialsWorld.SANDSTONE_LOOSE_ROCK)
-            .add(SurvivalistEssentialsWorld.RED_SANDSTONE_LOOSE_ROCK);
+            .add(BuiltInRegistries.BLOCK.getResourceKey(SurvivalistEssentialsWorld.ANDESITE_LOOSE_ROCK).orElseThrow())
+            .add(BuiltInRegistries.BLOCK.getResourceKey(SurvivalistEssentialsWorld.DIORITE_LOOSE_ROCK).orElseThrow())
+            .add(BuiltInRegistries.BLOCK.getResourceKey(SurvivalistEssentialsWorld.GRANITE_LOOSE_ROCK).orElseThrow())
+            .add(BuiltInRegistries.BLOCK.getResourceKey(SurvivalistEssentialsWorld.STONE_LOOSE_ROCK).orElseThrow())
+            .add(BuiltInRegistries.BLOCK.getResourceKey(SurvivalistEssentialsWorld.SANDSTONE_LOOSE_ROCK).orElseThrow())
+            .add(BuiltInRegistries.BLOCK.getResourceKey(SurvivalistEssentialsWorld.RED_SANDSTONE_LOOSE_ROCK).orElseThrow());
 
         getOrCreateRawBuilder(TagManager.Blocks.FIBER_PLANTS)
             .addElement(ResourceLocationHelper.getBlockId(Blocks.VINE))

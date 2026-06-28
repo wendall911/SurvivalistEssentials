@@ -20,7 +20,7 @@ public class ClientEventHandler {
             Component message = Component.translatable("message.survivalistessentials.tcon_compat")
                 .withStyle(ChatFormatting.DARK_GREEN);
 
-            Minecraft.getInstance().gui.getChat().addPlayerMessage(message, null, GuiMessageTag.system());
+            Minecraft.getInstance().gui.hud.getChat().addPlayerMessage(message, null, GuiMessageTag.system());
             ConfigHandler.Client.disableTConCompatMessage();
         }
     }

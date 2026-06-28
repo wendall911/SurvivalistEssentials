@@ -2,16 +2,17 @@ package survivalistessentials.util;
 
 import java.util.List;
 
-import net.minecraft.advancements.criterion.DataComponentMatchers;
-import net.minecraft.advancements.criterion.EnchantmentPredicate;
-import net.minecraft.advancements.criterion.EntityPredicate;
-import net.minecraft.advancements.criterion.ItemPredicate;
-import net.minecraft.advancements.criterion.MinMaxBounds;
+import net.minecraft.advancements.predicates.DataComponentMatchers;
+import net.minecraft.advancements.predicates.EnchantmentPredicate;
+import net.minecraft.advancements.predicates.ItemPredicate;
+import net.minecraft.advancements.predicates.MinMaxBounds;
+import net.minecraft.advancements.predicates.entity.EntityPredicate;
 import net.minecraft.core.HolderLookup.RegistryLookup;
 import net.minecraft.core.component.predicates.DataComponentPredicates;
 import net.minecraft.core.component.predicates.EnchantmentsPredicate;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
@@ -44,7 +45,7 @@ public class LootConditionHelper {
             RegistryLookup<EntityType<?>> entityRegistryLookup) {
         return new LootItemCondition[] {
             LootItemRandomChanceCondition.randomChance(chance).build(),
-            LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, EntityPredicate.Builder.entity().of(entityRegistryLookup, EntityType.PLAYER)).build(),
+            LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, EntityPredicate.Builder.entity().of(entityRegistryLookup, EntityTypes.PLAYER)).build(),
             LootItemBlockIsTagCondition.isTag(tag),
             hasSilkTouch(enchantmentRegistryLookup).invert().build(),
             MatchTool.toolMatches(ItemPredicate.Builder.item().of(itemRegistryLookup, TagManager.Items.SHEAR_TOOLS)).invert().build()

@@ -2,8 +2,9 @@ package survivalistessentials.data.recipe;
 
 import org.jspecify.annotations.NonNull;
 
-import net.minecraft.advancements.Criterion;
-import net.minecraft.advancements.criterion.InventoryChangeTrigger;
+import net.minecraft.advancements.triggers.Criterion;
+import net.minecraft.advancements.triggers.InventoryChangeTrigger;
+import net.minecraft.advancements.triggers.InventoryChangeTrigger.TriggerInstance;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderLookup.RegistryLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -41,7 +42,7 @@ public interface ISurvivalistEssentialsRecipeProvider {
 
     Criterion<InventoryChangeTrigger.TriggerInstance> _has(ItemLike itemLike);
 
-    Criterion<InventoryChangeTrigger.TriggerInstance> _has(TagKey<Item> tag);
+    Criterion<TriggerInstance> _has(TagKey<Item> tag);
 
     default void buildModRecipes(HolderLookup.Provider registries, @NonNull RecipeOutput recipeOutput) {
         HolderLookup.RegistryLookup<Item> itemRegistry = registries.lookupOrThrow(Registries.ITEM);
